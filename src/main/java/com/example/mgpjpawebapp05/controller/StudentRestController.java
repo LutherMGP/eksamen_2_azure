@@ -23,13 +23,11 @@ public class StudentRestController {
         return "Du er i roden af JPAStudent22";
     }
 
-    /*
     @GetMapping("/students")
     public List<Student> students() {
         List<Student> lst = studentRepository.findAll();
         return lst;
     }
-    */
 
     @GetMapping("/addstudent")
     public List<Student> addstudent() {
