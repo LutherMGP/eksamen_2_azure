@@ -3,9 +3,8 @@ package com.example.mgpjpawebapp05.controller;
 import com.example.mgpjpawebapp05.model.Student;
 import com.example.mgpjpawebapp05.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -27,6 +26,14 @@ public class StudentRestController {
     public List<Student> students() {
         List<Student> lst = studentRepository.findAll();
         return lst;
+    }
+
+    @PostMapping("/student")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Student postStudent(@RequestBody Student student) {
+        System.out.println("Indsætter ny student");
+        System.out.println(student);
+        return studentRepository.save(student);
     }
 
     @GetMapping("/addstudent")
