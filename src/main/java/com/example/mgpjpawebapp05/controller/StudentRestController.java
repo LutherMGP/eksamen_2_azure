@@ -24,6 +24,7 @@ public class StudentRestController {
 
     @GetMapping("/students")
     public List<Student> students() {
+        System.out.println("Liste af alle studenter");
         List<Student> lst = studentRepository.findAll();
         return lst;
     }
